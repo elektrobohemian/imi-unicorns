@@ -1,6 +1,6 @@
 # Chasing Unicorns and Vampires in a Library
 
-Report on the project is available [here](abschlussbericht_unicorn.pdf).
+Only available in German: Report on the project is available [here](abschlussbericht_unicorn.pdf). The original slides are available [here](Folien_SS2018.pdf).
 
 ## Installation
 
