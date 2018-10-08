@@ -1,5 +1,7 @@
 # Chasing Unicorns and Vampires in a Library
 
+Report on the project is available [here](abschlussbericht_unicorn.pdf).
+
 ## Installation
 
 This application contains 2 parts, one is the Flask server which will serve the http calls and the angular application.

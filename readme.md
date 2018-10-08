@@ -1,47 +1,90 @@
-## Chasing Unicorns and Vampires in a Library
+# Chasing Unicorns and Vampires in a Library
 
-Die Staatsbibliothek zu Berlin ist die größte wissenschaftliche
-Bibliothek des deutschsprachigen Raums. In ihrer mehr als 350 Jahre
-alten Geschichten haben sich weit mehr 13 Millionen verschiedene Medien
-angesammelt und es werden immer mehr...
+Report on the project is available [here](abschlussbericht_unicorn.pdf).
 
-Ein großer Teil unser alten Bestände, d.h. 15.818.274 Einzelseiten, sind
-bereits digitalisiert und werden weltweit unter
-http://digital.staatsbibliothek-berlin.de/ angeboten. Teilweise sind
-unser Bücher, die häufig nur noch einmal auf der Welt existieren,
-bereits durch die OCR gelaufen, so dass wir mehr oder weniger wissen,
-was in ihnen steht. Als positive Nebenwirkung haben wir dabei ebenfalls
-herausgefunden, wo sich Abbildungen befinden, jedoch nicht, was
-eigentlich abgebildet ist.
+## Installation
 
-Ziel des Projekts ist es, mittels geeigneter Mittel das kulturelle
-Welterbe visuell zu erkunden und Leserinnen und Lesern die Möglichkeit
-zu bieten, einen ganz neuen Blick auf unsere internationale Sammlung zu
-werfen. Hierbei steht nicht mehr der Text sondern das Bild im
-Mittelpunkt, so dass sich die Exploration verschiedener Visualisierungs-
-und Interaktionsmethoden anbietet.
+This application contains 2 parts, one is the Flask server which will serve the http calls and the angular application.
+The second part is the Angular 2 (Version 6 at this point) which will provide the frontend for this project.
+To get the Application running follow the steps belowe.
 
-**Unter anderem könnte dabei untersucht werden:**
+### Download the Repository
 
-* welche typischen Motive sich in den Büchern, Schriftrollen,
-    Karten etc. der letzten 1.000 Jahre finden lassen,
-* wie diese zusammenhängen, ob sich diese ähneln
-* und ob sich diese Bilder Kategoriebegriffen, wie Einhorn oder
-    Vampir, zuordnen lassen.
+```
+git clone git@github.com:CouchCat/imi-unicorns.git
+```
 
-Thematisch streifen sie hier Felder wie die inhaltsbasierte Bildsuche,
-maschinelles Lernen (z.B. CNN), Clusteringalgorithmen und last not least
-Visualisierungstechniken für eine riesige Anzahl an Objekte, die sich
-über den Erwerbungszeitstrahl der Staatsbibliothek zu Berlin erstrecken.
+and go into the Application Folder
 
----
-## Links
-**Beipiele:**
-[example01](http://ngcs.staatsbibliothek-berlin.de/?action=metsImage&format=jpg&metsFile=PPN751257885&divID=PHYS_0231&width=1200)
-[example02](http://ngcs.staatsbibliothek-berlin.de/?action=metsImage&format=jpg&metsFile=PPN626696453&divID=PHYS_0020&width=1200)
-[example03](http://ngcs.staatsbibliothek-berlin.de/?action=metsImage&format=jpg&metsFile=PPN3308095777&divID=PHYS_0002&width=1200)
-[example04](http://ngcs.staatsbibliothek-berlin.de/?action=metsImage&format=jpg&metsFile=PPN632170891&divID=PHYS_0293&width=1200)
-[example05](http://ngcs.staatsbibliothek-berlin.de/?action=metsImage&format=jpg&metsFile=PPN644058722&divID=PHYS_0053&width=1200)
+```
+cd imi-unicorns
+```
 
+### Database
 
-## Mehr in der Wiki!
+To restore or create the Database excute the command:
+
+```
+mongorestore -d unicorns ./UnicornsDB/unicorns
+```
+
+### Angular 2 (Web application)
+
+Go into the Application Folder:
+
+```
+cd WebApp
+```
+
+and install all dependencies
+
+```
+npm install
+```
+
+for development run:
+```
+npm start
+```
+
+for test purposes build the application once with:
+```
+npm run build
+```
+
+for production builds, minified and uglyfied:
+```
+npm run prod
+```
+
+### Python Flask (Server)
+
+Next go back into the root directory
+```
+cd Server
+```
+
+create a Python virtual environment
+```
+python -m venv .
+```
+
+and install the dependencies of python with:
+```
+pip install -r requirements.txt
+```
+
+export the flask application to a enviroment variable:
+```
+export FLASK_APP=app/__init__.py
+```
+
+and run the server with:
+```
+flask run
+```
+
+the server will be available on:
+```
+localhost:5000
+```
